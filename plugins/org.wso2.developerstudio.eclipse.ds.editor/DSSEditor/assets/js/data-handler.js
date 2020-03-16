@@ -1069,7 +1069,7 @@ function saveAll(root, url, successFunc) {
     let prettyXmlText;
     let isIE = false || !!document.documentMode;
     if (isIE) {
-    	prettyXmlText = serializedData;
+    	prettyXmlText = serializedData.split(/xmlns\:NS[0-9]+=\"\" NS[0-9]+\:/).join("");
     } else {
     	prettyXmlText = new XmlBeautify().beautify(serializedData, 
                 {indent: "  ",useSelfClosingElement: true});
